@@ -1,20 +1,20 @@
 #Add firm characteristic data such as size, BTM, turnover
-#important 831
-shfinal831=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\shfinal831.csv")
-szfinal831=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\szfinal831.csv")
+#Starting data 831
+shfinal831=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\shfinal831.csv")
+szfinal831=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\szfinal831.csv")
 
 shfinal832=shfinal831[,c(-1,-4,-(6:21))]
 szfinal832=szfinal831[,c(-1,-4,-(6:21))]
 
 names(shfinal831)
-#import lot of data
-ANA=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\ANA.csv")
-FOR=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\FOR.csv")
-GOV=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\GOV.csv")
-LEV=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\LEV.csv")
-MTB=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\MTB.csv")
-NI=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\NI.csv")
-ROA=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\ROA.csv")
+#import lot of data analyst coverage, foreign investors, leverage, book to market data and so on
+ANA=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\ANA.csv")
+FOR=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\FOR.csv")
+GOV=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\GOV.csv")
+LEV=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\LEV.csv")
+MTB=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\MTB.csv")
+NI=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\NI.csv")
+ROA=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\persistence\\variables\\ROA.csv")
 ROE=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\ROE.csv")
 OWN=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\OWN.csv")
 TURN=read.csv(file="C:\\Users\\zjkplay123\\Desktop\\perperper\\variables\\TURN.csv")
@@ -49,7 +49,7 @@ flev=function(x,y){
 shfinal833=flev(shfinal832,LEV2)
 szfinal833=flev(szfinal832,LEV2)
 
-#ROA
+#ROA return on asset
 ROA2=code_completion(ROA)
 froa=function(x,y){
   y$date=as.Date(y$date,format="%Y/%m/%d")
@@ -107,7 +107,7 @@ froe=function(x,y){
 shfinal835=froe(shfinal834,ROE2)
 szfinal835=froe(szfinal834,ROE2)
 
-#OWN
+#OWN ownership concentration
 OWN2=code_completion(OWN)
 fown=function(x,y){
   y$date=as.Date(y$date,format="%Y/%m/%d")
